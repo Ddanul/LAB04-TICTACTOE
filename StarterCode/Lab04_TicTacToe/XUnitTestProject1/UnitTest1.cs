@@ -7,25 +7,26 @@ namespace XUnitTestProject1
 {
     public class UnitTest1
     {
+        static Player p1 = new Player
+        {
+            Name = "Dan",
+            Marker = "X",
+            IsTurn = true
+        };
+
+        static Player p2 = new Player
+        {
+            Name = "Rich",
+            Marker = "O",
+            IsTurn = false
+        };
+
+        Game newGame = new Game(p1, p2);
+
         [Fact]
         public void TestWinningBoard1()
         {
             //arrange
-            Player p1 = new Player
-            {
-                Name = "Dan",
-                Marker = "X",
-                IsTurn = true
-            };
-
-            Player p2 = new Player
-            {
-                Name = "Rich",
-                Marker = "O",
-                IsTurn = false
-            };
-
-            Game newGame = new Game(p1, p2);
 
             string[,] winBoard1 = new string[,]
             {
@@ -38,6 +39,51 @@ namespace XUnitTestProject1
 
             //assert
             Assert.True(newGame.CheckForWinner(newGame.Board));
+        }
+
+        [Fact]
+        public void TestWinningBoard2()
+        {
+            //arrange
+
+            string[,] winBoard2 = new string[,]
+            {
+                {"O", "O", "O"},
+                {"4", "X", "6"},
+                {"7", "X", "9"},
+            };
+
+            newGame.Board.GameBoard = winBoard2;
+
+            //assert
+            Assert.True(newGame.CheckForWinner(newGame.Board));
+        }
+
+        [Fact]
+        public void TestWinningBoard3()
+        {
+            //arrange
+
+            string[,] winBoard3 = new string[,]
+            {
+                {"X", "X", "O"},
+                {"4", "O", "6"},
+                {"O", "X", "9"},
+            };
+
+            newGame.Board.GameBoard = winBoard3;
+
+            //assert
+            Assert.True(newGame.CheckForWinner(newGame.Board));
+        }
+
+        [Fact]
+        public void TestFailingBoard1()
+        {
+            //arrange
+
+            //assert
+            Assert.False(newGame.CheckForWinner(newGame.Board));
         }
     }
 }
