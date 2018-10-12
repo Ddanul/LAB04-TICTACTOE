@@ -30,8 +30,8 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>Winner</returns>
 		public Player Play()
 		{
-            //TODO: Complete this method and utilize the rest of the class structure to play the game.
-            
+            //DONE TODO: Complete this method and utilize the rest of the class structure to play the game.
+
             /*
 			 While there isn't a winner determined or too many turns have been taken,
 			 allow each player to see the board and take a turn.
@@ -41,18 +41,27 @@ namespace Lab04_TicTacToe.Classes
 			 Once a winner is determined, display the board and return a winner 
 			 */
 
-            while (!CheckForWinner(Board))
+            int turns = 0;
+
+            while (!CheckForWinner(Board) && turns < 9)
             {
                 Player currentPlayer = NextPlayer();
                 Board.DisplayBoard();
                 currentPlayer.TakeTurn(Board);
                 SwitchPlayer();
+                turns++;
             }
 
-            SwitchPlayer();
-            Winner = NextPlayer();
+            if (turns <= 9)
+                return null;
+            else
+            {
+                SwitchPlayer();
+                Winner = NextPlayer();
 
-            return Winner;
+                return Winner;
+            }
+
         }
 
 
@@ -77,7 +86,7 @@ namespace Lab04_TicTacToe.Classes
 				new[] {3,5,7}
 			};
 
-			// Given all the winning conditions, Determine the winning logic. 
+			// Given all the winning conditions, Determine the winning logic.
 			for (int i = 0; i < winners.Length; i++)
 			{
 				Position p1 = Player.PositionForNumber(winners[i][0]);

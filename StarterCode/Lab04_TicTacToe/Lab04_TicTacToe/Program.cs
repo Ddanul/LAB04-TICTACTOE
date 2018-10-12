@@ -13,7 +13,7 @@ namespace Lab04_TicTacToe
 
 		static void PlayGame()
 		{
-			// TODO: Instantiate your players
+			// TODO: Instantiate your players DONE
             Console.Write("Please enter name for Player 1: ");
             string playerOneName = Console.ReadLine();
             Console.Write("Please enter name for Player 2: ");
@@ -40,7 +40,10 @@ namespace Lab04_TicTacToe
             Player winner = newGame.Play();
 
             // Output the winner DONE
-            Console.WriteLine($"{winner.Name} is the winner. Nobody cares.");
+            if (winner == null)
+                Console.WriteLine("Nobody wins!");
+            else
+                Console.WriteLine($"{winner.Name} is the winner. Yay.");
 		}
 	}
 }
