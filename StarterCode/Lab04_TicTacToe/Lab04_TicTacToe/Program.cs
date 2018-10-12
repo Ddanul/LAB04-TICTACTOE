@@ -22,18 +22,26 @@ namespace Lab04_TicTacToe
             Player p1 = new Player
             {
                 Name = playerOneName,
-                Marker = "X"
+                Marker = "X",
+                IsTurn = true
             };
 
             Player p2 = new Player
             {
                 Name = playerTwoName,
-                Marker = "O"
+                Marker = "O",
+                IsTurn = false
             };
             
             // Create the Game DONE
             Game newGame = new Game(p1, p2);
-            newGame.Board.DisplayBoard();
+
+            Player winner = newGame.Play();
+
+            //newGame.Board.DisplayBoard();
+
+
+            // Take turn for player 1 ?
 
 			// Play the Game
 			// Output the winner
