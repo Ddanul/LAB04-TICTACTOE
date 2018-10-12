@@ -3,15 +3,15 @@ using Lab04_TicTacToe.Classes;
 
 namespace Lab04_TicTacToe
 {
-	class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
             PlayGame();
 		}
 
-		static void PlayGame()
+		public static void PlayGame()
 		{
 			// TODO: Instantiate your players DONE
             Console.Write("Please enter name for Player 1: ");
