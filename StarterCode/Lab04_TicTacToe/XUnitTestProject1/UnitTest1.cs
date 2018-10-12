@@ -78,13 +78,45 @@ namespace XUnitTestProject1
         }
 
         [Fact]
+        public void TestForFirstPlayerTurn()
+        {
+            Assert.True(p1.IsTurn);
+        }
+
+        [Fact]
+        public void TestForPlayerSwitch()
+        {
+            newGame.SwitchPlayer();
+            Assert.True(p2.IsTurn);
+        }
+
+        [Fact]
+        public void TestForRow()
+        {
+            //We want 1 = 0 for Row position
+            Position testPosition = new Position(0, 0);
+
+
+            Assert.Equal(testPosition.Row, Player.PositionForNumber(1).Row);
+        }
+
+        [Fact]
+        public void TestForColumn()
+        {
+            //We want 2 = 1 for Column position
+            Position testPosition = new Position(0, 1);
+
+
+            Assert.Equal(testPosition.Column, Player.PositionForNumber(2).Column);
+        }
+
+        [Fact]
         public void TestFailingBoard1()
         {
-            //arrange
-
             //assert
             Assert.False(newGame.CheckForWinner(newGame.Board));
         }
+
     }
 }
 
