@@ -42,25 +42,26 @@ namespace Lab04_TicTacToe.Classes
 			 */
 
             int turns = 0;
+            Board.DisplayBoard();
 
             while (!CheckForWinner(Board) && turns < 9)
             {
                 Player currentPlayer = NextPlayer();
-                Board.DisplayBoard();
                 currentPlayer.TakeTurn(Board);
                 SwitchPlayer();
                 turns++;
+                Board.DisplayBoard();
             }
 
-            if (turns <= 9)
-                return null;
-            else
+            if(CheckForWinner(Board))
             {
                 SwitchPlayer();
                 Winner = NextPlayer();
 
                 return Winner;
             }
+            else
+                return null;
 
         }
 
