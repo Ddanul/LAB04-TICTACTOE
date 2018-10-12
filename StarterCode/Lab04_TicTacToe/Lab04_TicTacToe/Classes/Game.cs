@@ -28,8 +28,8 @@ namespace Lab04_TicTacToe.Classes
 		/// Activate the Play of the game
 		/// </summary>
 		/// <returns>Winner</returns>
-		public Player Play()
-		{
+		//public Player Play()
+		//{
 
 			//TODO: Complete this method and utilize the rest of the class structure to play the game.
 
@@ -41,7 +41,7 @@ namespace Lab04_TicTacToe.Classes
 			 board so the next player can accurately choose. 
 			 Once a winner is determined, display the board and return a winner 
 			 */
-		}
+		//}
 
 
 		/// <summary>
