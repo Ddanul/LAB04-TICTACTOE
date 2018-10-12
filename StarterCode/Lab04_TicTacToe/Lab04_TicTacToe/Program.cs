@@ -36,15 +36,11 @@ namespace Lab04_TicTacToe
             // Create the Game DONE
             Game newGame = new Game(p1, p2);
 
+            // Play the Game DONE
             Player winner = newGame.Play();
 
-            //newGame.Board.DisplayBoard();
-
-
-            // Take turn for player 1 ?
-
-			// Play the Game
-			// Output the winner
+            // Output the winner DONE
+            Console.WriteLine($"{winner.Name} is the winner. Nobody cares.");
 		}
 	}
 }
